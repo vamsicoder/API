@@ -2,8 +2,8 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var topicsSchema = new Schema({
-	author: String,
-	topicName: String,
+	author: [{type: Schema.Types.ObjectId, ref: 'Users'}],
+	topicName: {type: String, unique: true},
 	topicDesc: String
 });
 
