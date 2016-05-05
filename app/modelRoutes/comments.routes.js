@@ -1,4 +1,4 @@
-module.exports = function(comments_route) {
+module.exports = function(comments_route, comments) {
 
 	comments_route.get(function(req, res) {
 		var topicId = req.params.topicId;

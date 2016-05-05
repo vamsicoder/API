@@ -1,4 +1,4 @@
-module.exports = function(posts_route) {
+module.exports = function(posts_route, posts) {
 
 	posts_route.get(function(req, res) {
 		var topicId = req.params.topicId; // Topic id for a post
