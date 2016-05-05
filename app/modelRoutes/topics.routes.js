@@ -24,8 +24,7 @@ module.exports = function(topics_route, topics) {
 	topics_route.post(function(req, res) {
 		var name 	= req.body.tName;
 		var desc 	= req.body.desc || "";
-		var tAuthor  = [];
-		tAuthor.push(req.body.tAuthor);
+		var tAuthor  = req.body.tAuthor;		
 
 		if (!req.body.tAuthor) {
 			res.send("Invalid parameters");
