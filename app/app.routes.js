@@ -12,11 +12,11 @@ module.exports = function(router, models) {
 	// Posts Routes
 
 	var posts_route = router.route("/topics/:topicId/posts");
-	require('./modelRoutes/posts.routes')(posts_route, models.postsModel);
+	require('./modelRoutes/posts.routes')(posts_route, models.postsModel, models.topicsModel);
 
 	// Comments Routes
 
 	var comments_route = router.route("/topics/:topicId/posts/:postId/comments");
-	require('./modelRoutes/comments.routes')(comments_route, models.commentsModel);
+	require('./modelRoutes/comments.routes')(comments_route, models.commentsModel, models.postsModel);
 
 };

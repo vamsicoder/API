@@ -1,4 +1,4 @@
-module.exports = function(comments_route, comments) {
+module.exports = function(comments_route, comments, postsModel) {
 
 	comments_route.get(function(req, res) {
 		var topicId = req.params.topicId;
@@ -48,6 +48,10 @@ module.exports = function(comments_route, comments) {
 				res.send(err);
 				return;
 			}
+
+			// Increment Comments Count in posts Model
+			postsModel.findByIdAndUpdate(req.body.postId, {$inc: {commentsCount: 1}}).exec();
+			
 			res.send({
 				status : 200,
 				msg	   : "Created Successfully",
