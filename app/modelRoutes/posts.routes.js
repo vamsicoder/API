@@ -38,7 +38,7 @@ module.exports = function(posts_route, posts) {
 		var post = new posts({
 			"topicId" : req.body.topicId,
 			"post"	: req.body.post,
-			"author" : [req.body.pAuthor]
+			"author" : req.body.pAuthor
 		});
 		
 		post.save(function(err, createdPost) {
