@@ -1,5 +1,5 @@
-var users = require("./models/users.model.js");
-var topics = require("./models/topics.model.js");
+var users = require("./models/users.model");
+var topics = require("./models/topics.model");
 
 module.exports = {
 	usersModel	:  users,
