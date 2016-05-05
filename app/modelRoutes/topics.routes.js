@@ -1,4 +1,4 @@
-module.exports = function(topics_route, topics, errorFunc) {
+module.exports = function(topics_route, topics) {
 	topics_route.get(function(req, res) {
 		var topicId = req.body.id;
 		if(!topicId) {

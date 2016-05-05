@@ -1,4 +1,4 @@
-module.exports = function(users_route, users, errorFunc) {
+module.exports = function(users_route, users) {
 	users_route.get(function(req, res) {
 		var userId = req.query.name;	
 		users.find({name: userId}, function(err, user) {

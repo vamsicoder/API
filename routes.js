@@ -24,5 +24,14 @@ require('./app/modelRoutes/users.routes.js')(users_route, users);
 var topics_route = router.route("/topics");
 require('./app/modelRoutes/topics.routes.js')(topics_route, topics);
 
+// Posts Routes
+
+var posts_route = router.route("/topics/:topicId/posts");
+require('./app/modelRoutes/posts.routes.js')(posts_route);
+
+// Comments Routes
+
+var comments_route = router.route("/topics/:topicId/posts/:postId/comments");
+require('./app/modelRoutes/comments.routes.js')(comments_route);
 
 module.exports = router;
