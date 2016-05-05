@@ -21,7 +21,7 @@ app.get("/", function(req, res) {
 
 // Custom Routes
 
-var routes = require("./routes");
+var routes = require("./router");
 app.use("/api", routes);
 
 
