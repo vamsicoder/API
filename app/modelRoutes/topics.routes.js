@@ -1,6 +1,6 @@
 module.exports = function(topics_route, topics) {
 	topics_route.get(function(req, res) {
-		var topicId = req.body.id;
+		var topicId = req.query.topicId;
 		if(!topicId) {
 			topics.find(function(err, topics) {
 				if(err) {
