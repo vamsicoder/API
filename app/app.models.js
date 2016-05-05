@@ -4,8 +4,9 @@ var posts = require("./models/posts.model");
 var comments = require("./models/comments.model");
 
 module.exports = {
-	usersModel	:  users,
-	topicsModel	:  topics,
-	postsModel	:  posts,
+	usersModel	 :  users,
+	topicsModel	 :  topics,
+	postsModel	 :  posts,
 	commentsModel: comments
 };
+
