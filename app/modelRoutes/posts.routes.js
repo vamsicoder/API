@@ -1,4 +1,4 @@
-module.exports = function(posts_route, posts) {
+module.exports = function(posts_route, posts, topicsModel) {
 
 	posts_route.get(function(req, res) {
 		var topicId = req.params.topicId; // Topic id for a post
@@ -45,12 +45,17 @@ module.exports = function(posts_route, posts) {
 			if(err) {
 				res.send(err);
 				return;
+			} else {
+				// Increment Post Count in topics Model
+				topicsModel.findByIdAndUpdate(req.body.topicId, {$inc: {postsCount: 1}}).exec();
+				
+				res.send({
+					status : 200,
+					msg	   : "Created Successfully",
+					post   : createdPost
+				});
 			}
-			res.send({
-				status : 200,
-				msg	   : "Created Successfully",
-				post   : createdPost
-			});
+			
 		});
 		
 	});
