@@ -4,6 +4,11 @@ module.exports = function(router, models) {
 	var users_route = router.route("/users");
 	require('./modelRoutes/users.routes')(users_route, models.usersModel);
 
+	// Authorization Routes
+
+	var oauth_route = router.route("/oauth");
+	require("./modelRoutes/oauth.routes.js")(oauth_route, models.usersModel);
+	
 	// Topics Routes
 
 	var topics_route = router.route("/topics");
