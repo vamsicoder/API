@@ -28,7 +28,7 @@ module.exports = function(users_route, users) {
 		var name 	 = req.body.name;
 		var emailId  = req.body.emailId;
 		var password = req.body.password;
-				
+		
 		if(!(name && emailId && password)) {
 			res.send("Invalid parameters");
 			return;
