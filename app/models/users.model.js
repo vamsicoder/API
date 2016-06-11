@@ -50,6 +50,10 @@ UserSchema.methods.validateUser = function(name, password, cb) {
 		if(err) {
 			return cb(err);
 		}		
+		if(!user) {
+			return cb("User does not exist");
+		}
+
 		users.comparePasswords(user.password, function(err, isMatched) {
 			if(err) {
 				return cb(err);

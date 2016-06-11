@@ -11,13 +11,14 @@ module.exports = function(oauth_routes, users) {
 
 		user.validateUser(username, password, function(err, user) {
 			if(err) {
-				return res.send(err);
+				return res.status(400).send(err);
 			}
+			// Sends whole User object other than Password
 			res.send({
 				_id: user._id,
 				name: user.name,
 				emailId: user.emailId
-			}); // Sends whole User object other than Password
+			}); 
 		});
 	});
 
