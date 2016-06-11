@@ -6,6 +6,16 @@ app.factory("applicationConsts", ["$location", function($location) {
 	var _services = {};
 
 	// Add Services
+
+	_services["login"] = {
+		method: "post",
+		url: _baseUrl + _api +"/oauth"
+	}
+
+	_services["get_topics"] = {
+		method: "get",
+		url: _baseUrl + _api + "/topics"
+	}
 	
 	exports.services = _services;
 
