@@ -1,14 +1,21 @@
 <div ng-controller="loginController">
-	<div class="form-group">
-		<input type="text" ng-model="uname" placeholder="User name" />
+	      
+    <div class="login-page">
+	    <div class="form">
+	      <form class="register-form" ng-show="showSignUp">
+	        <input type="text" placeholder="name" ng-model="signUp_uname"/>
+	        <input type="password" placeholder="password"  ng-model="signUp_pwd"/>
+	        <input type="text" placeholder="email address"  ng-model="signUp_emailId"/>
+	        <button ng-click="signup()">create</button>
+	        <p class="message">Already registered? <a href="#" ng-click="showSignUp = !showSignUp">Sign In</a></p>
+	      </form>
+	      <form class="login-form" ng-hide="showSignUp">
+	        <input type="text" placeholder="username" ng-model="uname"/>
+	        <input type="password" placeholder="password" ng-model="pwd"/>
+	        <button ng-click="login()">login</button>
+	        <p class="message">Not registered? <a href="#" ng-click="showSignUp = !showSignUp">Create an account</a></p>
+	      </form>
+	    </div>
 	</div>
-	<div class="form-group">
-		<input type="password" ng-model="pwd" placeholder="password">
-	</div>
-	<div class="form-group">
-		<button ng-click="login()" class="btn btn-primary"> Login</button>
-	</div>
-      
-      
       
 </div>

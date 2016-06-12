@@ -12,6 +12,11 @@ app.factory("applicationConsts", ["$location", function($location) {
 		url: _baseUrl + _api +"/oauth"
 	}
 
+	_services["signUp"] = {
+		method: "post",
+		url: _baseUrl + _api + "/users"
+	}
+
 	_services["get_topics"] = {
 		method: "get",
 		url: _baseUrl + _api + "/topics"

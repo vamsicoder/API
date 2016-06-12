@@ -30,7 +30,7 @@ module.exports = function(users_route, users) {
 		var password = req.body.password;
 		
 		if(!(name && emailId && password)) {
-			res.send("Invalid parameters");
+			res.status(400).send("Invalid parameters");			
 			return;
 		}
 
@@ -46,8 +46,7 @@ module.exports = function(users_route, users) {
 				return;
 			}
 
-			res.send({
-				status : 200,
+			res.status(200).send({				
 				msg	   : "Created Successfully",
 				user   : createdUser
 			});
