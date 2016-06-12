@@ -53,14 +53,12 @@ UserSchema.methods.validateUser = function(name, password, cb) {
 		if(!user) {
 			return cb("User does not exist");
 		}
-
-		users.comparePasswords(user.password, function(err, isMatched) {
-			if(err) {
-				return cb(err);
-			}
-			console.log("user data in final callback" + user);
+		if(user.password === password) {
 			cb(null, user);
-		});
+		} else {
+			return cb("Password mismatch");
+		}
+		// Need to add Encrypted password check in db later		
 
 	});
 };
