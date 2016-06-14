@@ -1,4 +1,16 @@
-<div ng-controller="topicsController">
+<div ng-controller="topicsController" >
 
-	Getting all the topics ...
+	<div class="container" ng-hide="got_topics" style="color: white;"> Getting all the topics ... </div>
+	<div class="container" ng-show="got_topics" style="color: white;">
+		<div class="no_topics" ng-show="no_topics">
+			No topic has been created yet... wanna create one ? 
+			<span class="glyphicon glyphicon-plus" style="cursor: pointer;" ng-click="switchModal()"></span>
+		</div>
+	</div>
+	
+	<modal title="Create Modal" show="showModal" saveBtn="Create Topic"> 
+	<div>
+		hiiiiii
+	</div>
+	</modal>
 </div>
