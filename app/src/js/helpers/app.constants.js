@@ -21,6 +21,11 @@ app.factory("applicationConsts", ["$location", function($location) {
 		method: "get",
 		url: _baseUrl + _api + "/topics"
 	}
+
+	_services["create_topic"] = {
+		method: "post",
+		url: _baseUrl + _api + "/topics"
+	}
 	
 	exports.services = _services;
 

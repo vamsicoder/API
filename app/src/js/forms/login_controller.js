@@ -11,7 +11,6 @@ app.controller("loginController", ["$scope","servicecalls","navigator", "auth", 
 		navigator.go("/topics");
 	}
 
-
 	function onSignUpSuccess(res) {		
 		reset_data();
 		$scope.showSignUp = false;

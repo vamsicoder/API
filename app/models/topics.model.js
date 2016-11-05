@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var topicsSchema = new Schema({
 	author: {type: Schema.Types.ObjectId, ref: 'Users'},
+	authorName: String,
 	topicName: {type: String, unique: true},
 	topicDesc: String,
 	postsCount: {type: Number, default: 0, min: 0}

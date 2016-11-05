@@ -5,6 +5,9 @@ app.factory("auth", function() {
 		},
 		isLoggedIn: function() {
 			return $.jStorage.get("current-user")? true: false;
+		},
+		getUser: function() {
+			return $.jStorage.get("current-user");
 		}
 	}
 });

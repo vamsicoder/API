@@ -1,16 +1,32 @@
 <div ng-controller="topicsController" >
-
 	<div class="container" ng-hide="got_topics" style="color: white;"> Getting all the topics ... </div>
 	<div class="container" ng-show="got_topics" style="color: white;">
 		<div class="no_topics" ng-show="no_topics">
 			No topic has been created yet... wanna create one ? 
 			<span class="glyphicon glyphicon-plus" style="cursor: pointer;" ng-click="switchModal()"></span>
 		</div>
+		<div class="topics_list" ng-hide="no_topics">
+			List of Topics 
+			<div class="topic" ng-repeat="topics in topicsList" id="{{topics._id}}">
+				 Topic Name : {{topics.topicName}}
+				 Topic Desc : {{topics.topicDesc}}
+				 <span class="glyphicon glyphicon-plus" style="cursor: pointer;" ng-click="switchModal(topics)"></span>
+			</div>
+		</div>
+		
 	</div>
 	
-	<modal title="Create Modal" show="showModal" saveBtn="Create Topic"> 
-	<div>
-		hiiiiii
+	<modal title="Create Topic" saveBtn="Create Topic" class="topicCreateModal"> 
+	<div class="content">
+		<div class="data">
+			<label> Topic Name: </label>
+			<input type="text" name="" placeholder="Topic name" ng-model="topicName" val="{{topicName}}" ng-change="changed()">		
+		</div>
+		<div class="data">
+			<label> Topic Description: </label>
+			<input type="text" 
+			name="" placeholder="Topic Description" ng-model="topicDesc" val="{{topicDesc}}" ng-change="changed()">	
+		</div>		
 	</div>
 	</modal>
 </div>

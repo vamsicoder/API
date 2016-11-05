@@ -10,8 +10,8 @@
         <div ng-transclude></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary save_data">{{ saveBtn }}</button>
+        <button type="button" class="btn btn-default" ng-click="hideModal()">Close</button>
+        <button type="button" class="btn btn-primary save_data" ng-click="saveModal()">{{ saveBtn }}</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

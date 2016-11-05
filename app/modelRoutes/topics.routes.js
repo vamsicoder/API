@@ -25,6 +25,7 @@ module.exports = function(topics_route, topics) {
 		var name 	= req.body.tName;
 		var desc 	= req.body.desc || "";
 		var tAuthor  = req.body.tAuthor;		
+		var tAuthorName = req.body.tAuthorName;
 
 		if (!req.body.tAuthor) {
 			res.send("Invalid parameters");
@@ -34,7 +35,8 @@ module.exports = function(topics_route, topics) {
 		var topic	= new topics({
 			topicName : name,
 			topicDesc : desc,
-			author: tAuthor
+			author: tAuthor,
+			authorName: tAuthorName
 		});
 
 
