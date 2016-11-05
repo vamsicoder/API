@@ -26,10 +26,10 @@ app.controller("topicsController", ["$scope", "servicecalls", "auth",  function(
 		servicecalls.requestService("get_topics", {}).then(onSuccess, onError);	
 	}
 	
-
 	function switchModal(topic) {		
 		$scope.topicName = topic.topicName;
 		$scope.topicDesc = topic.topicDesc;
+		$scope.topicId 	 = topic._id;
 		$('.topicCreateModal').modal('show');
 	}
 
@@ -47,9 +47,9 @@ app.controller("topicsController", ["$scope", "servicecalls", "auth",  function(
 			tName: this.topicName,
 			desc: this.topicDesc,
 			tAuthor: auth.getUser()._id,
-			tAuthorName: auth.getUser().name
+			tAuthorName: auth.getUser().name,
+			tId: this.topicId
 		};
-
 		servicecalls.requestService("create_topic", params).then(onCreateSuccess, onError);
 	};
 

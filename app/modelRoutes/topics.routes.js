@@ -26,18 +26,35 @@ module.exports = function(topics_route, topics) {
 		var desc 	= req.body.desc || "";
 		var tAuthor  = req.body.tAuthor;		
 		var tAuthorName = req.body.tAuthorName;
+		var topicObj = {
+			topicName : name,
+			topicDesc : desc,
+			author: tAuthor,
+			authorName: tAuthorName
+		};
+		var tId;
+		if(tId = req.body.tId) {
+			topics.findOneAndUpdate({ _id: tId }, { new: true }, topicObj, function(err, topicUpdated) {
+				if(err) {
+					res.send(err);
+					return;
+				}
+				res.send({
+					status: 200,
+					msg: "Updated Successfully",
+					"topic": topicUpdated
+				});
+				
+			})
+			return;
+		}
 
 		if (!req.body.tAuthor) {
 			res.send("Invalid parameters");
 			return;
 		}
 
-		var topic	= new topics({
-			topicName : name,
-			topicDesc : desc,
-			author: tAuthor,
-			authorName: tAuthorName
-		});
+		var topic	= new topics(topicObj);
 
 
 		topic.save(function(err, savedTopic) {
