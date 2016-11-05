@@ -1,4 +1,4 @@
-<div ng-controller="topicsController" >
+<div ng-controller="topicsController" class="topics">
 	<div class="container" ng-hide="got_topics" style="color: white;"> Getting all the topics ... </div>
 	<div class="container" ng-show="got_topics" style="color: white;">
 		<div class="no_topics" ng-show="no_topics">
@@ -10,13 +10,14 @@
 			<div class="topic" ng-repeat="topics in topicsList" id="{{topics._id}}">
 				 Topic Name : {{topics.topicName}}
 				 Topic Desc : {{topics.topicDesc}}
-				 <span class="glyphicon glyphicon-plus" style="cursor: pointer;" ng-click="switchModal(topics)"></span>
+				 <span class="glyphicon glyphicon-plus" style="cursor: pointer;" ng-click="switchModal('edit', topics)"></span>
 			</div>
+			Create new Topic <span class="glyphicon glyphicon-plus" style="cursor: pointer;" ng-click="switchModal('new')"></span>
 		</div>
 		
 	</div>
 	
-	<modal title="Create Topic" saveBtn="Create Topic" class="topicCreateModal"> 
+	<modal title=" Topic " saveBtn="Save" class="topicCreateModal"> 
 	<div class="content">
 		<div class="data">
 			<label> Topic Name: </label>

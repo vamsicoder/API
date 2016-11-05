@@ -26,10 +26,15 @@ app.controller("topicsController", ["$scope", "servicecalls", "auth",  function(
 		servicecalls.requestService("get_topics", {}).then(onSuccess, onError);	
 	}
 	
-	function switchModal(topic) {		
-		$scope.topicName = topic.topicName;
-		$scope.topicDesc = topic.topicDesc;
-		$scope.topicId 	 = topic._id;
+	function switchModal(mode, topic) {	
+		if(mode === "edit") {
+			$scope.topicName = topic.topicName;
+			$scope.topicDesc = topic.topicDesc;
+			$scope.topicId 	 = topic._id;	
+		} else {
+			$scope.new = true;
+		}
+		
 		$('.topicCreateModal').modal('show');
 	}
 
